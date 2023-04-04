@@ -1,6 +1,6 @@
 ---
 title: Demo 组件
-order: 1
+order: 2
 group:
   title: 组件
 ---
