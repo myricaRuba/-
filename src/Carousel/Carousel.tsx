@@ -40,14 +40,14 @@ export default ({ imgList }: DemoProps) => {
     panel[0].appendChild(items[0]);
   };
   return (
-    <div style={{ marginLeft: '20px' }}>
+    <div style={{ marginLeft: '20px' }} className="carousel">
       <div className="container">
         <div className="panel">
           {imgList.map((item) => {
             return (
               <div key={item.id} className="item">
                 <div className="content">
-                  {/*<img src={item.src} alt='' />*/}
+                  <img src={item.src} alt="" />
                   <div className="title">{item.title}</div>
                   <div className="desc">{item.desc}</div>
                   <div className="button">查看更多 &gt;</div>
