@@ -13,20 +13,6 @@ type Item = {
 
 // 这是一个demo
 export default ({ imgList }: DemoProps) => {
-  // const backImage = useRef(null);
-  // useEffect(() => {
-  //   setBackImage();
-  // }, ['']);
-  // /**设置背景图片**/
-  // const setBackImage = () => {
-  //   backImage.current.style.backgroundImage = `url(${imgList[0].src})`
-  //   // const items = document.getElementsByClassName("item")
-  //   // for (let i = 0; i < items.length; i++) {
-  //   //   console.log(items[i],items[i].style.backgroundImage);
-  //   //   items[i].style.backgroundImage = `url(${imgList[i].src})`
-  //   // }
-  // };
-
   /**上一张图片**/
   const previousImage = () => {
     const panel = document.getElementsByClassName('panel');
@@ -39,18 +25,36 @@ export default ({ imgList }: DemoProps) => {
     const items = document.getElementsByClassName('item');
     panel[0].appendChild(items[0]);
   };
+  const seeMore = (item: Item) => {
+    console.log(item, 'item');
+  };
+
   return (
     <div style={{ marginLeft: '20px' }} className="carousel">
       <div className="container">
         <div className="panel">
           {imgList.map((item) => {
             return (
-              <div key={item.id} className="item">
+              <div
+                key={item.id}
+                className="item"
+                style={{
+                  background: `url(${item.src})`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'cover',
+                }}
+              >
                 <div className="content">
-                  <img src={item.src} alt="" />
                   <div className="title">{item.title}</div>
                   <div className="desc">{item.desc}</div>
-                  <div className="button">查看更多 &gt;</div>
+                  <div
+                    className="button"
+                    onClick={() => {
+                      seeMore(item);
+                    }}
+                  >
+                    查看更多 &gt;
+                  </div>
                 </div>
               </div>
             );
